@@ -20,14 +20,16 @@ public class SensorsRoutesBuilder extends RouteBuilder {
 	public void configure() throws Exception {
 
 		// заглушка
-		from("timer://timer?period=1000").process(new Processor() {
-			@Override
-			public void process(Exchange arg0) {
-				// System.out.println(arg0.getIn().getBody());
-				// logger.info("TEST MESSAGE");
-				arg0.getIn().setBody("TEST MESSAGE OVER CAMEL");
-			}
-		}).bean(this.sss);
+//		from("timer://timer?period=1000").process(new Processor() {
+//			@Override
+//			public void process(Exchange arg0) {
+//				// System.out.println(arg0.getIn().getBody());
+//				// logger.info("TEST MESSAGE");
+//				arg0.getIn().setBody("TEST MESSAGE OVER CAMEL");
+//			}
+//		}).bean(this.sss);
+		
+		from("direct:SensorsMQ").bean(this.sss);
 
 	}
 
