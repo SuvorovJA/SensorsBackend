@@ -16,7 +16,7 @@ import org.apache.camel.ProducerTemplate;
 
 @MessageDriven(activationConfig = {
 		@ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
-		@ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "/jms/queue/SENSORS") })
+		@ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "/jms/queue/SENSORS_OTHER") })
 public class SensorsQueue implements MessageListener {
 	private Logger logger = Logger.getLogger(getClass().getName());
 

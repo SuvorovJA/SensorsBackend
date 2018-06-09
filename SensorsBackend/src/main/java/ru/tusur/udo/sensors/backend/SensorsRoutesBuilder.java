@@ -29,8 +29,10 @@ public class SensorsRoutesBuilder extends RouteBuilder {
 //			}
 //		}).bean(this.sss);
 		
-		from("direct:SensorsMQ").bean(this.sss);
+		from("direct:SensorsMQ").bean(this.sss); // очередь на WildFly SENSORS_OTHER
 
+		from("activemq:SENSORS").bean(this.sss); // очередь на WildFly SENSORS
+		
 	}
 
 }
